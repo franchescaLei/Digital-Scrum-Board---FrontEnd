@@ -1,0 +1,190 @@
+/* Profile management — full-width in app shell */
+
+.profile-page {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-page-header {
+    max-width: 48rem;
+}
+
+/* Identity summary (name, email, role, team) */
+.profile-identity-card {
+    padding: 22px 24px;
+}
+
+.profile-identity {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.profile-identity-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, var(--accent-red), #6d1212);
+    color: #fff;
+    font-family: var(--font-ui);
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 6px 20px color-mix(in srgb, var(--accent-red) 28%, transparent);
+}
+
+.profile-identity-body {
+    flex: 1;
+    min-width: min(100%, 240px);
+}
+
+.profile-identity-label {
+    font-family: var(--font-ui);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin: 0 0 6px;
+}
+
+.profile-identity-name {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--page-title-color);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 0 0 6px;
+}
+
+.profile-identity-email {
+    font-family: var(--font-ui);
+    font-size: 0.9375rem;
+    color: var(--page-sub-color);
+    margin: 0 0 18px;
+    word-break: break-word;
+}
+
+.profile-identity-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px 24px;
+    margin: 0;
+}
+
+.profile-identity-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.profile-identity-row dt {
+    font-family: var(--font-ui);
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--page-sub-color);
+    margin: 0;
+}
+
+.profile-identity-row dd {
+    margin: 0;
+}
+
+.profile-meta-pill {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    padding: 6px 12px;
+    border-radius: var(--radius-md);
+    font-family: var(--font-ui);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--page-title-color);
+    background: color-mix(in srgb, var(--form-surface) 70%, var(--card-bg));
+    border: 1px solid var(--card-border);
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+.profile-meta-pill--role {
+    background: color-mix(in srgb, var(--accent-red-light) 45%, var(--card-bg));
+    border-color: color-mix(in srgb, currentColor 22%, var(--card-border));
+}
+
+/* Two columns for settings on wide screens */
+.profile-page-forms {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: start;
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .profile-page-forms {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.profile-card-title {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--page-title-color);
+    letter-spacing: -0.02em;
+    margin: 0 0 6px;
+    line-height: 1.25;
+}
+
+.profile-card-desc {
+    font-family: var(--font-ui);
+    font-size: 0.8125rem;
+    color: var(--page-sub-color);
+    line-height: 1.5;
+    margin: 0 0 18px;
+}
+
+.profile-form {
+    margin-top: 0;
+    align-items: stretch;
+}
+
+.profile-form .auth-field {
+    width: 100%;
+}
+
+.profile-submit {
+    width: 100%;
+    margin-top: 4px;
+}
+
+.profile-hint {
+    font-family: var(--font-ui);
+    font-size: 0.6875rem;
+    color: var(--page-sub-color);
+    margin: 6px 0 0;
+    line-height: 1.4;
+}
+
+.profile-banner-wrap {
+    margin-bottom: 16px;
+}
+
+.profile-card .auth-label-optional {
+    font-weight: 400;
+    opacity: 0.72;
+}

@@ -1,0 +1,1015 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Scrum Board — System Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="dsb-info.css" />
+</head>
+<body>
+
+    <!-- ── Header ─────────────────────────────────────── -->
+    <header class="info-header">
+        <div class="info-header-inner">
+            <div class="info-header-brand">
+                <div class="info-brand-mark">
+                    <img src="/SitesphilLogo.png" alt="" class="info-brand-mark-img" width="30" height="30" />
+                </div>
+                <div class="info-brand-text">
+                    <span class="info-brand-name">Digital Scrum Board</span>
+                    <span class="info-brand-sub">System Guide</span>
+                </div>
+            </div>
+            <div class="info-header-actions">
+                <button class="info-login-btn" id="proceedToLogin" type="button" aria-label="Proceed to login">
+                    Proceed to Login
+                </button>
+                <button class="info-theme-btn" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+                    <span class="theme-icon-sun" aria-hidden="true">
+                        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5" /><line x1="8" y1="1" x2="8" y2="2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /><line x1="8" y1="13.5" x2="8" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /><line x1="1" y1="8" x2="2.5" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /><line x1="13.5" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /><line x1="3.05" y1="3.05" x2="4.11" y2="4.11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /><line x1="11.89" y1="11.89" x2="12.95" y2="12.95" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /><line x1="12.95" y1="3.05" x2="11.89" y2="4.11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /><line x1="4.11" y1="11.89" x2="3.05" y2="12.95" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+                    </span>
+                    <span class="theme-icon-moon" aria-hidden="true">
+                        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 9.5A6 6 0 0 1 6.5 2.5a6.002 6.002 0 1 0 7 7Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── Hero ─────────────────────────────────────────── -->
+    <section class="info-hero">
+        <div class="info-hero-bg-dots" aria-hidden="true"></div>
+        <div class="info-hero-bg-glow" aria-hidden="true"></div>
+        <div class="info-container">
+            <div class="info-hero-inner">
+                <div class="info-hero-content">
+                    <span class="info-eyebrow">Agile Sprint Management</span>
+                    <h1 class="info-hero-title">
+                        Plan. <em>Sprint.</em><br />Ship.
+                    </h1>
+                    <p class="info-hero-desc">
+                        The Digital Scrum Board is a role-based agile workspace for software teams — combining structured backlogs, real-time Kanban boards, sprint planning, and audit logging in a single, cohesive platform.
+                    </p>
+                    <div class="info-hero-badges">
+                        <span class="info-badge info-badge--red">Real-time boards</span>
+                        <span class="info-badge info-badge--gold">Role-based access</span>
+                        <span class="info-badge info-badge--neutral">Audit logging</span>
+                        <span class="info-badge info-badge--neutral">SignalR live sync</span>
+                    </div>
+                </div>
+                <div class="info-hero-visual" aria-hidden="true">
+                    <div class="info-mock-card info-mock-card--1">
+                        <div class="info-mock-dot info-mock-dot--blue"></div>
+                        <div class="info-mock-lines">
+                            <div class="info-mock-line info-mock-line--long"></div>
+                            <div class="info-mock-line info-mock-line--short"></div>
+                        </div>
+                        <div class="info-mock-badge" style="background:rgba(234,88,12,0.12);color:#ea580c">High</div>
+                    </div>
+                    <div class="info-mock-card info-mock-card--2">
+                        <div class="info-mock-dot info-mock-dot--cyan"></div>
+                        <div class="info-mock-lines">
+                            <div class="info-mock-line info-mock-line--med"></div>
+                            <div class="info-mock-line info-mock-line--short"></div>
+                        </div>
+                        <div class="info-mock-badge" style="background:rgba(202,138,4,0.12);color:#ca8a04">Med</div>
+                    </div>
+                    <div class="info-mock-card info-mock-card--3">
+                        <div class="info-mock-dot info-mock-dot--indigo"></div>
+                        <div class="info-mock-lines">
+                            <div class="info-mock-line info-mock-line--long"></div>
+                            <div class="info-mock-line info-mock-line--med"></div>
+                        </div>
+                        <div class="info-mock-badge" style="background:rgba(22,163,74,0.12);color:#16a34a">Low</div>
+                    </div>
+                    <div class="info-mock-kanban">
+                        <div class="info-kanban-col">
+                            <div class="info-kanban-head info-kanban-head--todo">To-do</div>
+                            <div class="info-kanban-chip"></div>
+                            <div class="info-kanban-chip info-kanban-chip--sm"></div>
+                        </div>
+                        <div class="info-kanban-col">
+                            <div class="info-kanban-head info-kanban-head--ongoing">Ongoing</div>
+                            <div class="info-kanban-chip"></div>
+                        </div>
+                        <div class="info-kanban-col">
+                            <div class="info-kanban-head info-kanban-head--done">Done</div>
+                            <div class="info-kanban-chip"></div>
+                            <div class="info-kanban-chip info-kanban-chip--sm"></div>
+                            <div class="info-kanban-chip info-kanban-chip--sm"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── What is DSB ─────────────────────────────────── -->
+    <section class="info-section" id="overview">
+        <div class="info-container">
+            <div class="info-section-header">
+                <span class="info-eyebrow">Overview</span>
+                <h2 class="info-section-title">What is the Digital Scrum Board?</h2>
+                <p class="info-section-sub">
+                    DSB is a full-stack agile project management platform built for cross-functional engineering teams. It implements the Scrum framework end-to-end — from epic planning through sprint execution to delivery — with strict role-based access control and live collaborative features powered by SignalR WebSockets.
+                </p>
+            </div>
+            <div class="info-grid-3">
+                <div class="info-card">
+                    <div class="info-card-icon info-card-icon--red">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5" /><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5" /><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5" /><path d="M14 17.5h7M17.5 14v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+                    </div>
+                    <h3 class="info-card-title">Scrum Hierarchy</h3>
+                    <p class="info-card-desc">Work items follow a strict 3-level hierarchy enforced by database rules: <strong>Epics</strong> group themes (no parent, no team), <strong>Stories</strong> belong to an Epic, and <strong>Tasks</strong> are the atomic units assigned to Epics or Stories. Only Tasks are assigned to sprints — Stories cannot be added to a sprint directly.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon info-card-icon--gold">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" /><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+                    </div>
+                    <h3 class="info-card-title">Sprint Lifecycle</h3>
+                    <p class="info-card-desc">Sprints move through <strong>Planned → Active → Completed</strong> states. Only Tasks are dragged from the backlog into sprints. Sprint managers and Admins/Scrum Masters control start, stop, and complete actions. All work items must have an assignee before a sprint can start.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon info-card-icon--red">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
+                    </div>
+                    <h3 class="info-card-title">Real-time Collaboration</h3>
+                    <p class="info-card-desc">All board movements, assignee changes, comments, and status updates are broadcast to all connected clients via <strong>SignalR hubs</strong> in real time — no page refresh needed. Notifications arrive as toast popups with a chime. Status transitions follow a strict workflow enforced on both client and server.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Role-based Access ───────────────────────────── -->
+    <section class="info-section info-section--alt" id="roles">
+        <div class="info-container">
+            <div class="info-section-header">
+                <span class="info-eyebrow">Permissions &amp; Access</span>
+                <h2 class="info-section-title">Role-Based Access Control</h2>
+                <p class="info-section-sub">
+                    Every action in DSB is guarded by a role. Your role is assigned by an Administrator and determines which features and data you can interact with across the entire application. Some permissions are additive — team membership grants additional access on top of your base role.
+                </p>
+            </div>
+
+            <div class="info-roles-grid">
+
+                <!-- Administrator -->
+                <div class="info-role-card info-role-card--admin">
+                    <div class="info-role-header">
+                        <div class="info-role-dot" style="background:var(--accent-red)"></div>
+                        <h3 class="info-role-name">Administrator</h3>
+                        <span class="info-role-tag" style="background:rgba(139,26,26,0.12);color:var(--accent-red)">Admin</span>
+                    </div>
+                    <p class="info-role-desc">Full system access. Manages users, teams, roles, and all audit logs. Can create, edit, and delete any sprint or work item. Can reassign work items and change any assignee, team, or priority regardless of sprint status. The only role that can view audit logs.</p>
+                    <ul class="info-role-perms">
+                        <li class="perm-yes">Create / edit / delete users &amp; teams</li>
+                        <li class="perm-yes">Change any user's role or team assignment</li>
+                        <li class="perm-yes">Create / edit / delete any sprint</li>
+                        <li class="perm-yes">Create / edit / delete any work item</li>
+                        <li class="perm-yes">Change priority and title of any work item (even in active sprints — but only due date is editable during active sprint for all roles)</li>
+                        <li class="perm-yes">Move any card on the Kanban board</li>
+                        <li class="perm-yes">Assign / reassign any work item</li>
+                        <li class="perm-yes">Comment on any work item</li>
+                        <li class="perm-yes">Delete any comment</li>
+                        <li class="perm-yes">View full audit logs, export CSV</li>
+                        <li class="perm-yes">Force lock / unlock user accounts</li>
+                        <li class="perm-yes">Reset any user's password</li>
+                    </ul>
+                </div>
+
+                <!-- Scrum Master -->
+                <div class="info-role-card info-role-card--sm">
+                    <div class="info-role-header">
+                        <div class="info-role-dot" style="background:var(--accent-gold)"></div>
+                        <h3 class="info-role-name">Scrum Master</h3>
+                        <span class="info-role-tag" style="background:rgba(196,147,63,0.15);color:var(--accent-gold)">SM</span>
+                    </div>
+                    <p class="info-role-desc">Elevated workspace role. Plans and manages sprints, creates work items, controls the backlog, and oversees team delivery. Has the same work item creation and editing privileges as Administrator. Cannot administer user accounts or view audit logs.</p>
+                    <ul class="info-role-perms">
+                        <li class="perm-yes">Create / edit / delete sprints</li>
+                        <li class="perm-yes">Create / edit / delete work items</li>
+                        <li class="perm-yes">Change priority, title, team, parent of work items</li>
+                        <li class="perm-yes">Move any card on the board</li>
+                        <li class="perm-yes">Assign / reassign any work item</li>
+                        <li class="perm-yes">Comment on any work item</li>
+                        <li class="perm-yes">Delete any comment</li>
+                        <li class="perm-no">Cannot manage users or roles</li>
+                        <li class="perm-no">Cannot view audit logs</li>
+                        <li class="perm-no">Cannot force-lock or unlock accounts</li>
+                    </ul>
+                </div>
+
+                <!-- Sprint Manager -->
+                <div class="info-role-card info-role-card--mgr">
+                    <div class="info-role-header">
+                        <div class="info-role-dot" style="background:#3b82f6"></div>
+                        <h3 class="info-role-name">Sprint Manager</h3>
+                        <span class="info-role-tag" style="background:rgba(59,130,246,0.12);color:#2563eb">Manager</span>
+                    </div>
+                    <p class="info-role-desc">A sprint-scoped role assigned to any user for a specific sprint. Within that sprint they gain extended control over work items and lifecycle — but only for their sprint. They cannot edit sprint details (name, dates, goal, team) — only Admins and Scrum Masters can.</p>
+                    <ul class="info-role-perms">
+                        <li class="perm-yes">Start / stop / complete their sprint</li>
+                        <li class="perm-yes">Move any card in their sprint</li>
+                        <li class="perm-yes">Change assignee of any item in their sprint</li>
+                        <li class="perm-yes">Remove Tasks from their sprint (when not active)</li>
+                        <li class="perm-yes">Comment on any item in their sprint</li>
+                        <li class="perm-no">Cannot edit sprint details (name, dates, goal, team)</li>
+                        <li class="perm-no">Cannot create or delete work items</li>
+                        <li class="perm-no">Cannot change priority, title, or other fields</li>
+                        <li class="perm-no">No cross-sprint authority</li>
+                    </ul>
+                </div>
+
+                <!-- Employee / Team Member -->
+                <div class="info-role-card info-role-card--dev">
+                    <div class="info-role-header">
+                        <div class="info-role-dot" style="background:#8b5cf6"></div>
+                        <h3 class="info-role-name">Employee / Team Member</h3>
+                        <span class="info-role-tag" style="background:rgba(139,92,246,0.12);color:#7c3aed">Employee</span>
+                    </div>
+                    <p class="info-role-desc">Standard team member. Can work on items assigned to them or within their team — moving cards on the board, commenting, and reassigning items within their team. Cannot create or delete sprint resources. Team membership grants additional access beyond role alone.</p>
+                    <ul class="info-role-perms">
+                        <li class="perm-yes">Move their own assigned cards on the board</li>
+                        <li class="perm-yes">Comment on items assigned to them, in their team, or in their sprint team</li>
+                        <li class="perm-yes">Change assignee of items in their team (but not priority, title, or other fields)</li>
+                        <li class="perm-yes">View all boards, backlogs, and sprint lists</li>
+                        <li class="perm-yes">Update their own profile name and password</li>
+                        <li class="perm-no">Cannot create epics, stories, or tasks</li>
+                        <li class="perm-no">Cannot create or manage sprints</li>
+                        <li class="perm-no">Cannot change priority, title, description, team, or parent of work items</li>
+                        <li class="perm-no">No admin panel access</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Additive team permissions callout -->
+            <div class="info-callout" style="margin-bottom: 12px;">
+                <div class="info-callout-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" /><path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+                </div>
+                <div>
+                    <strong>Team membership grants additive permissions.</strong> A team member (Employee role) can comment on any work item that belongs to their team or is in a sprint assigned to their team — even if the item is not directly assigned to them. These are additive checks on top of base role permissions.
+                </div>
+            </div>
+
+            <div class="info-callout info-callout--gold">
+                <div class="info-callout-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" /><path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+                </div>
+                <div>
+                    <strong>Active sprint field locks.</strong> When a sprint is Active, <em>all</em> users — including Administrators and Scrum Masters — can only edit the <strong>due date</strong> and <strong>assignee</strong> of a work item in that sprint. Title, description, priority, team, and parent are locked. Assignee changes during an active sprint are restricted to Admin, Scrum Master, or the Sprint Manager, and the new assignee must belong to the sprint's team.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Work Item Hierarchy Rules ───────────────────── -->
+    <section class="info-section" id="hierarchy">
+        <div class="info-container">
+            <div class="info-section-header">
+                <span class="info-eyebrow">Work Item Structure</span>
+                <h2 class="info-section-title">Hierarchy Rules &amp; Constraints</h2>
+                <p class="info-section-sub">
+                    DSB enforces strict parent-child relationships at both the application and database level. These rules cannot be bypassed.
+                </p>
+            </div>
+
+            <div class="info-grid-3">
+                <div class="info-card">
+                    <div class="info-card-icon info-card-icon--red">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
+                    </div>
+                    <h3 class="info-card-title">Epic</h3>
+                        <p class="info-card-desc">Top-level grouping. <strong>Cannot have a parent.</strong> Can have Stories and Tasks as direct children. Due date past validation applies on creation. Epics are never assigned to a sprint.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon info-card-icon--gold">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5" /></svg>
+                    </div>
+                    <h3 class="info-card-title">Story</h3>
+                    <p class="info-card-desc"><strong>Parent must be an Epic.</strong> Cannot be assigned to a sprint directly — only Tasks go into sprints. Stories have a <em>derived status</em> computed from their child Tasks: all Tasks completed → Completed; any Ongoing or For Checking → Ongoing; all To-do → To-do. Task due dates cannot exceed the Story's due date.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon info-card-icon--red">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" stroke-width="1.5" /></svg>
+                    </div>
+                    <h3 class="info-card-title">Task</h3>
+                    <p class="info-card-desc"><strong>Parent must be an Epic or Story.</strong> Tasks <strong>cannot have child items</strong> — changing an item to a Task is blocked if it has existing children. Only Tasks are assigned to sprints. Must have an assignee before the sprint they belong to can be started. Task due date cannot exceed the sprint's end date.</p>
+                </div>
+            </div>
+
+            <div class="info-callout" style="margin-top: 24px;">
+                <div class="info-callout-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /><line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /><line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+                </div>
+                <div>
+                    <strong>Cascade deletion.</strong> Soft-deleting an Epic also soft-deletes all its descendant Stories and Tasks. Soft-deleting a Story deletes all its child Tasks. Deleted items are unassigned from sprints and all related history and notifications are preserved. Deleted items cannot be restored through the UI — Admins and Scrum Masters only.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Status Transition Rules ─────────────────────── -->
+    <section class="info-section info-section--alt" id="status-flow">
+        <div class="info-container">
+            <div class="info-section-header">
+                <span class="info-eyebrow">Kanban Workflow</span>
+                <h2 class="info-section-title">Status Transition Rules</h2>
+                <p class="info-section-sub">
+                    Work item status transitions on the board follow a strict one-directional workflow. Not every move is valid — the system enforces these rules server-side on every drag operation.
+                </p>
+            </div>
+
+            <div class="info-status-flow">
+                <div class="info-status-node info-status-node--todo">
+                    <div class="info-status-label">To-do</div>
+                    <div class="info-status-sub">Starting state</div>
+                </div>
+                <div class="info-status-arrow">
+                    <div class="info-status-arrow-line"></div>
+                    <div class="info-status-arrow-head">→</div>
+                </div>
+                <div class="info-status-node info-status-node--ongoing">
+                    <div class="info-status-label">Ongoing</div>
+                    <div class="info-status-sub">In progress</div>
+                </div>
+                <div class="info-status-arrow">
+                    <div class="info-status-arrow-line"></div>
+                    <div class="info-status-arrow-head">→</div>
+                </div>
+                <div class="info-status-node info-status-node--checking">
+                    <div class="info-status-label">For Checking</div>
+                    <div class="info-status-sub">Pending review</div>
+                </div>
+                <div class="info-status-arrow">
+                    <div class="info-status-arrow-line"></div>
+                    <div class="info-status-arrow-head">→</div>
+                </div>
+                <div class="info-status-node info-status-node--done">
+                    <div class="info-status-label">Completed</div>
+                    <div class="info-status-sub">Accepted &amp; closed</div>
+                </div>
+            </div>
+
+            <div class="info-transition-grid">
+                <div class="info-transition-card">
+                    <div class="info-transition-from info-status-pill--todo">To-do</div>
+                    <div class="info-transition-arrow">can move to</div>
+                    <div class="info-transition-to">
+                        <span class="info-status-pill info-status-pill--ongoing">Ongoing</span>
+                    </div>
+                </div>
+                <div class="info-transition-card">
+                    <div class="info-transition-from info-status-pill--ongoing">Ongoing</div>
+                    <div class="info-transition-arrow">can move to</div>
+                    <div class="info-transition-to">
+                        <span class="info-status-pill info-status-pill--todo">To-do</span>
+                        <span class="info-status-pill info-status-pill--checking">For Checking</span>
+                    </div>
+                </div>
+                <div class="info-transition-card">
+                    <div class="info-transition-from info-status-pill--checking">For Checking</div>
+                    <div class="info-transition-arrow">can move to</div>
+                    <div class="info-transition-to">
+                        <span class="info-status-pill info-status-pill--ongoing">Ongoing</span>
+                        <span class="info-status-pill info-status-pill--done">Completed</span>
+                    </div>
+                </div>
+                <div class="info-transition-card">
+                    <div class="info-transition-from info-status-pill--done">Completed</div>
+                    <div class="info-transition-arrow">can move to</div>
+                    <div class="info-transition-to">
+                        <span class="info-status-pill info-status-pill--checking">For Checking</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-callout info-callout--gold" style="margin-top: 24px;">
+                <div class="info-callout-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" /><path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+                </div>
+                <div>
+                    <strong>Invalid moves are rejected.</strong> Attempting to drag a card to a non-allowed column (e.g. To-do → For Checking directly) will be rejected by the server with a validation error, even if the frontend allows the drag gesture. Work items removed from a sprint — or returned to backlog when a sprint is stopped or completed — are always reset to <strong>To-do</strong> status. Completed items keep their Completed status when a sprint finishes.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Core Modules ────────────────────────────────── -->
+    <section class="info-section" id="modules">
+        <div class="info-container">
+            <div class="info-section-header">
+                <span class="info-eyebrow">Core Features</span>
+                <h2 class="info-section-title">System Modules</h2>
+                <p class="info-section-sub">DSB is organized into four primary workspaces, each accessible from the left sidebar navigation.</p>
+            </div>
+
+            <div class="info-modules">
+
+                <!-- Planning Workspace -->
+                <div class="info-module">
+                    <div class="info-module-number" aria-hidden="true">01</div>
+                    <div class="info-module-body">
+                        <div class="info-module-icon-wrap info-module-icon-wrap--red">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="1.5" rx="0.75" fill="currentColor" /><rect x="2" y="8.25" width="15" height="1.5" rx="0.75" fill="currentColor" /><rect x="2" y="13.5" width="18" height="1.5" rx="0.75" fill="currentColor" /><rect x="2" y="18.75" width="12" height="1.5" rx="0.75" fill="currentColor" /></svg>
+                        </div>
+                        <div>
+                            <h3 class="info-module-title">Planning Workspace</h3>
+                            <p class="info-module-desc">The central hub for sprint planning. Divided into three panels:</p>
+                            <ul class="info-module-list">
+                                <li><strong>Epics Drawer</strong> — A collapsible row of epic tiles showing story and task completion progress. Click any epic to open its full hierarchy viewer showing the Epic → Stories → Tasks tree with derived statuses.</li>
+                                <li><strong>Backlog Panel</strong> — All unassigned Tasks and Stories with unassigned child Tasks. Rows are draggable — drag any Task onto a sprint row to assign it. Supports search, filter (type, priority, team, assignee), and sort. Only Tasks can be assigned to sprints from the backlog.</li>
+                                <li><strong>Sprints Panel</strong> — Expandable sprint rows showing name, duration, status, story/task counts, and manager. Expand a sprint to see its work items. Drop-zones accept only Task items. Removing a Task from a Planned sprint is allowed; Active sprints cannot have items removed without stopping the sprint first.</li>
+                            </ul>
+                            <div class="info-module-access">
+                                <span class="info-access-label">Who can create items:</span>
+                                <span class="info-role-pill info-role-pill--red">Admin</span>
+                                <span class="info-role-pill info-role-pill--gold">Scrum Master</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sprint Board -->
+                <div class="info-module">
+                    <div class="info-module-number" aria-hidden="true">02</div>
+                    <div class="info-module-body">
+                        <div class="info-module-icon-wrap info-module-icon-wrap--red">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="1.5" y="3" width="6" height="15" rx="1.5" stroke="currentColor" stroke-width="1.5" /><rect x="9" y="3" width="6" height="10" rx="1.5" stroke="currentColor" stroke-width="1.5" /><rect x="16.5" y="3" width="6" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5" /></svg>
+                        </div>
+                        <div>
+                            <h3 class="info-module-title">Sprint Boards (Kanban)</h3>
+                            <p class="info-module-desc">A real-time Kanban board for each active sprint. Four columns track work progress:</p>
+                            <div class="info-kanban-demo">
+                                <div class="info-kd-col">
+                                    <div class="info-kd-head" style="color:#94a3b8">● To-do</div>
+                                    <p class="info-kd-body">Not yet started. Items are reset to this state when removed from a sprint or when a sprint is stopped or completed with unfinished work.</p>
+                                </div>
+                                <div class="info-kd-col">
+                                    <div class="info-kd-head" style="color:#3b82f6">● Ongoing</div>
+                                    <p class="info-kd-body">Actively being worked on. Only reachable from To-do. Can be sent back to To-do or forward to For Checking.</p>
+                                </div>
+                                <div class="info-kd-col">
+                                    <div class="info-kd-head" style="color:#f59e0b">● For Checking</div>
+                                    <p class="info-kd-body">Work complete — pending QA review. Can be sent back to Ongoing or moved forward to Completed.</p>
+                                </div>
+                                <div class="info-kd-col">
+                                    <div class="info-kd-head" style="color:#22c55e">● Completed</div>
+                                    <p class="info-kd-body">Accepted and closed. Counts toward sprint completion. Can only be moved back to For Checking. Completed items keep this status when a sprint finishes.</p>
+                                </div>
+                            </div>
+                            <p class="info-module-note"><strong>Board move authorization:</strong> Admins and Scrum Masters can drag any card. Sprint Managers can move any card in their sprint. Team members can move cards assigned to them. All moves are validated server-side against the allowed transitions table.</p>
+                            <div class="info-module-access">
+                                <span class="info-access-label">Who can stop/complete sprints:</span>
+                                <span class="info-role-pill info-role-pill--red">Admin</span>
+                                <span class="info-role-pill info-role-pill--gold">Scrum Master</span>
+                                <span class="info-role-pill info-role-pill--blue">Sprint Manager</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Admin Panel -->
+                <div class="info-module">
+                    <div class="info-module-number" aria-hidden="true">03</div>
+                    <div class="info-module-body">
+                        <div class="info-module-icon-wrap info-module-icon-wrap--red">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="7" r="3.5" stroke="currentColor" stroke-width="1.5" /><path d="M2 20c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /><path d="M17 10v6M14 13h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+                        </div>
+                        <div>
+                            <h3 class="info-module-title">Administration Panel</h3>
+                            <p class="info-module-desc">Accessible only to Administrators. Three tabs cover the full org management surface:</p>
+                            <ul class="info-module-list">
+                                <li><strong>User Management</strong> — Search, filter, and manage all users. View per-user auth state (active, locked showing lockout countdown, email unverified, pending password change). Enable/disable accounts, force-lock/unlock individuals, reset passwords (sends a temporary password email), and update role or team assignment. Role/team changes immediately invalidate active sessions and force a re-login via SignalR.</li>
+                                <li><strong>Team Management</strong> — Create named teams, assign users, move members, or remove team assignment entirely. Deleting a team reassigns all its members, work items, and sprints to the Default Team (treated as "unassigned") and notifies all affected members in real time. The Default Team (ID 1) cannot be deleted.</li>
+                                <li><strong>Role Management</strong> — View all users grouped by role. Change any user's role using the inline role picker. Role and team changes trigger a <strong>UserPermissionsChanged</strong> SignalR event, forcing a non-dismissible re-authentication modal on all the affected user's active browser tabs.</li>
+                            </ul>
+                            <div class="info-module-access">
+                                <span class="info-access-label">Restricted to:</span>
+                                <span class="info-role-pill info-role-pill--red">Admin only</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Audit Logs -->
+                <div class="info-module">
+                    <div class="info-module-number" aria-hidden="true">04</div>
+                    <div class="info-module-body">
+                        <div class="info-module-icon-wrap info-module-icon-wrap--red">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2.5" stroke="currentColor" stroke-width="1.5" /><line x1="7" y1="8" x2="17" y2="8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" /><line x1="7" y1="12" x2="17" y2="12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" /><line x1="7" y1="16" x2="13" y2="16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" /></svg>
+                        </div>
+                        <div>
+                            <h3 class="info-module-title">Audit Logs</h3>
+                            <p class="info-module-desc">A paginated, filterable log of every security and data event in the system. New entries appear in real time via SignalR broadcast to all Administrators. Filter by user ID, action type, success/failure, date range, target entity type and ID, and IP address. Export any filtered view as a CSV file (capped at 5,000 rows). Records for each entry include the actor user, target type and ID, IP address, timestamp, and full detail string.</p>
+                            <div class="info-audit-actions">
+                                <span class="info-audit-chip">LOGIN</span>
+                                <span class="info-audit-chip">LOGOUT</span>
+                                <span class="info-audit-chip">CREATE_USER</span>
+                                <span class="info-audit-chip">DISABLE_USER</span>
+                                <span class="info-audit-chip">ENABLE_USER</span>
+                                <span class="info-audit-chip">RESET_USER_PASSWORD</span>
+                                <span class="info-audit-chip">UPDATE_USER_ACCESS</span>
+                                <span class="info-audit-chip">UNLOCK_ACCOUNT</span>
+                                <span class="info-audit-chip">ADMIN_FORCE_LOCKOUT</span>
+                                <span class="info-audit-chip">CREATE_TEAM</span>
+                                <span class="info-audit-chip">DELETE_TEAM</span>
+                                <span class="info-audit-chip">Sprint.Create</span>
+                                <span class="info-audit-chip">Sprint.Update</span>
+                                <span class="info-audit-chip">Sprint.Start</span>
+                                <span class="info-audit-chip">Sprint.Stop</span>
+                                <span class="info-audit-chip">Sprint.Complete</span>
+                                <span class="info-audit-chip">Sprint.Delete</span>
+                                <span class="info-audit-chip">WorkItem.Create</span>
+                                <span class="info-audit-chip">WorkItem.Update</span>
+                                <span class="info-audit-chip">WorkItem.StatusChange</span>
+                                <span class="info-audit-chip">WorkItem.MoveBoardStatus</span>
+                                <span class="info-audit-chip">WorkItem.ReorderBoardPosition</span>
+                                <span class="info-audit-chip">WorkItem.Delete</span>
+                                <span class="info-audit-chip">WorkItem.Comment</span>
+                                <span class="info-audit-chip">WorkItem.Comment.Edit</span>
+                                <span class="info-audit-chip">WorkItem.Comment.Delete</span>
+                                <span class="info-audit-chip">VERIFY_EMAIL</span>
+                                <span class="info-audit-chip">FORGOT_PASSWORD</span>
+                                <span class="info-audit-chip">RESET_PASSWORD</span>
+                                <span class="info-audit-chip">VERIFY_RESET_CODE</span>
+                                <span class="info-audit-chip">CHANGE_PASSWORD</span>
+                                <span class="info-audit-chip">UPDATE_PROFILE</span>
+                            </div>
+                            <div class="info-module-access" style="margin-top: 14px;">
+                                <span class="info-access-label">Restricted to:</span>
+                                <span class="info-role-pill info-role-pill--red">Admin only</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Navigation Guide ────────────────────────────── -->
+    <section class="info-section info-section--alt" id="navigation">
+        <div class="info-container">
+            <div class="info-section-header">
+                <span class="info-eyebrow">Navigation Guide</span>
+                <h2 class="info-section-title">Getting Around</h2>
+                <p class="info-section-sub">DSB uses a persistent left sidebar for primary navigation. The sidebar collapses into icon-only mode to maximize workspace width.</p>
+            </div>
+
+            <div class="info-nav-guide">
+                <div class="info-nav-sidebar-mock" aria-hidden="true">
+                    <div class="info-nav-brand-mock">
+                        <div class="info-nav-logo-mock"></div>
+                        <div class="info-nav-brandname-mock"></div>
+                    </div>
+                    <div class="info-nav-section-mock">
+                        <div class="info-nav-link-mock info-nav-link-mock--active">
+                            <div class="info-nav-icon-mock"></div>
+                            <div class="info-nav-text-mock"></div>
+                        </div>
+                        <div class="info-nav-link-mock">
+                            <div class="info-nav-icon-mock"></div>
+                            <div class="info-nav-text-mock info-nav-text-mock--short"></div>
+                        </div>
+                    </div>
+                    <div class="info-nav-section-mock" style="margin-top: auto">
+                        <div class="info-nav-profile-mock">
+                            <div class="info-nav-avatar-mock"></div>
+                            <div style="flex:1;min-width:0">
+                                <div class="info-nav-text-mock" style="margin-bottom:4px"></div>
+                                <div class="info-nav-text-mock info-nav-text-mock--short"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-nav-steps">
+                    <div class="info-nav-step">
+                        <div class="info-nav-step-num">1</div>
+                        <div>
+                            <h4 class="info-nav-step-title">Planning Workspace</h4>
+                            <p class="info-nav-step-desc">Your main work area. Manage epics, the backlog, and all sprints. Drag Task items from the backlog onto sprint rows to assign them — Stories cannot be dragged directly into sprints. Use the toolbar menus (filter/sort icons) to narrow down what you see. Create new items using the <strong>New Item</strong> or <strong>New Sprint</strong> buttons (Admin/SM only).</p>
+                        </div>
+                    </div>
+                    <div class="info-nav-step">
+                        <div class="info-nav-step-num">2</div>
+                        <div>
+                            <h4 class="info-nav-step-title">Sprint Boards</h4>
+                            <p class="info-nav-step-desc">Shows only <em>active</em> sprints as Kanban columns. Use the selector at the top to switch between active sprints. Drag cards between columns to update their status — only allowed transitions are accepted. Click any card to open its detail modal — where you can read the description, add comments, and (if permitted) edit fields. During an active sprint, only the due date field is editable for all roles.</p>
+                        </div>
+                    </div>
+                    <div class="info-nav-step">
+                        <div class="info-nav-step-num">3</div>
+                        <div>
+                            <h4 class="info-nav-step-title">Notifications Bell</h4>
+                            <p class="info-nav-step-desc">The bell icon in the top-right header shows your unread notification count badge. Click it to open the notification panel. Unread items are highlighted. Click any unread notification to mark it as read, or use Mark All as Read. New notifications arrive as toast popups in the bottom-right corner with an audio chime (after your first interaction with the page). Notifications are filtered — you only receive events relevant to your work items, team, or sprint.</p>
+                        </div>
+                    </div>
+                    <div class="info-nav-step">
+                        <div class="info-nav-step-num">4</div>
+                        <div>
+                            <h4 class="info-nav-step-title">Profile Page</h4>
+                            <p class="info-nav-step-desc">Click your name/avatar at the bottom of the sidebar to access your profile. Here you can update your display name (first, middle, last, suffix) and change your password. Your role, team, and email address can only be changed by an Administrator. A profile name update broadcasts a <code>UserProfileChanged</code> event so other users see the new name immediately.</p>
+                        </div>
+                    </div>
+                    <div class="info-nav-step">
+                        <div class="info-nav-step-num">5</div>
+                        <div>
+                            <h4 class="info-nav-step-title">Admin Panel <span class="info-step-badge">Admin only</span></h4>
+                            <p class="info-nav-step-desc">Visible only to Administrators in the sidebar under "Administration". Contains separate routes for User Management (<code>/admin/users</code>) and Audit Logs (<code>/admin/audit</code>). The admin overview page (<code>/admin</code>) links to both. Real-time audit log entries stream in via the <code>AuditLogCreated</code> SignalR event — new rows prepend themselves to the live log without a page refresh.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ── Work Item Flows ─────────────────────────────── -->
+  <section class="info-section" id="flows">
+    <div class="info-container">
+      <div class="info-section-header">
+        <span class="info-eyebrow">Workflows</span>
+        <h2 class="info-section-title">Key Flows</h2>
+        <p class="info-section-sub">Understanding the lifecycle of work items and sprints is essential to using DSB effectively.</p>
+      </div>
+
+      <div class="info-flows-grid">
+
+        <div class="info-flow-card">
+          <h3 class="info-flow-title">
+            <span class="info-flow-icon" style="background:rgba(139,26,26,0.1);color:var(--accent-red)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Creating Work Items
+          </h3>
+          <ol class="info-flow-steps">
+            <li>Open the Planning Workspace</li>
+            <li>Click <strong>New Item</strong> (top-right of Backlog panel)</li>
+            <li>Select type: <em>Story</em> or <em>Task</em></li>
+            <li>Fill in title, description, priority, due date</li>
+            <li>Select a parent (Epic for Stories; Epic or Story for Tasks)</li>
+            <li>Optionally assign a user and team</li>
+            <li>Click <strong>Create Work Item</strong></li>
+          </ol>
+          <div class="info-flow-note">Stories and Tasks start in the <strong>backlog</strong> — not yet assigned to any sprint.</div>
+        </div>
+
+        <div class="info-flow-card">
+          <h3 class="info-flow-title">
+            <span class="info-flow-icon" style="background:rgba(196,147,63,0.12);color:var(--accent-gold)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+            Sprint Planning Cycle
+          </h3>
+          <ol class="info-flow-steps">
+            <li>Create a sprint (name, goal, dates, manager, team)</li>
+            <li>Drag backlog items onto the sprint row to assign them</li>
+            <li>If a Story is dragged, its child Tasks move with it (confirmation required)</li>
+            <li>Click <strong>Start Sprint</strong> to make it Active</li>
+            <li>Team works through items on the Kanban board</li>
+            <li>Click <strong>Complete Sprint</strong> — unfinished items return to backlog</li>
+          </ol>
+          <div class="info-flow-note">Only one sprint can be active per team at a time. Sprints can be stopped (reverted to Planned) before completing.</div>
+        </div>
+
+        <div class="info-flow-card">
+          <h3 class="info-flow-title">
+            <span class="info-flow-icon" style="background:rgba(22,163,74,0.1);color:#16a34a">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Account Onboarding
+          </h3>
+          <ol class="info-flow-steps">
+            <li>Administrator creates a user account</li>
+            <li>User receives a welcome email with a temporary password</li>
+            <li>User logs in — forced to change their password immediately</li>
+            <li>User verifies their email address via the link in the verification email</li>
+            <li>Full access granted after email verification</li>
+          </ol>
+          <div class="info-flow-note">Users without a verified email are held at the verification gate — they cannot access the app until they confirm their address.</div>
+        </div>
+
+        <div class="info-flow-card">
+          <h3 class="info-flow-title">
+            <span class="info-flow-icon" style="background:rgba(59,130,246,0.1);color:#2563eb">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </span>
+            Work Item Comments
+          </h3>
+          <ol class="info-flow-steps">
+            <li>Click any work item (in backlog, sprint list, or board)</li>
+            <li>The detail modal opens — comments appear in the right panel</li>
+            <li>Type in the composer at the bottom, press Ctrl+Enter or click <strong>Add Comment</strong></li>
+            <li>Your own comments can be edited or deleted inline</li>
+            <li>Admins can delete any comment</li>
+          </ol>
+          <div class="info-flow-note">Comments sync in real time via SignalR. Editing or deleting a comment updates it instantly for all viewers without refreshing.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <!-- ── Account Security ────────────────────────────── -->
+    <section class="info-section info-section--alt" id="security">
+        <div class="info-container">
+            <div class="info-section-header">
+                <span class="info-eyebrow">Security &amp; Account</span>
+                <h2 class="info-section-title">Account Security</h2>
+                <p class="info-section-sub">DSB enforces multiple layers of account security to protect your workspace from unauthorized access.</p>
+            </div>
+
+            <div class="info-grid-2">
+                <div class="info-security-item">
+                    <h4 class="info-security-title">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="1.5" /><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /><circle cx="12" cy="16" r="1.5" fill="currentColor" /></svg>
+                        Account Lockout
+                    </h4>
+                    <p>Login rate limiting begins after <strong>5 consecutive failed login attempts</strong> — a cooldown timer (starting at 1 minute, increasing by 30 seconds per additional failure) is shown. After <strong>8 consecutive failures</strong>, the account is locked for 24 hours. Administrators can manually unlock accounts (<code>UNLOCK_ACCOUNT</code> action, which also resets the failure counter) or force-lock any account. The same stepped cooldown applies to password reset code verification attempts.</p>
+                </div>
+                <div class="info-security-item">
+                    <h4 class="info-security-title">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4l16 16M4 20L20 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+                        Password Policy
+                    </h4>
+                    <p>Passwords must satisfy all 5 requirements: 8+ characters, at least one uppercase letter, one lowercase letter, one digit, and one symbol. This policy is enforced on login password change, self-service change, and admin-initiated reset flows. A strength meter with live per-requirement indicators is shown during password creation and change. Temporary passwords generated by the system are 12 characters long and always satisfy the policy.</p>
+                </div>
+                <div class="info-security-item">
+                    <h4 class="info-security-title">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
+                        Permissions Re-auth
+                    </h4>
+                    <p>If an Administrator changes your role or team while you're logged in, the server-side session validation middleware detects the mismatch on the next request and returns a <code>SESSION_INVALIDATED</code> response. A <code>UserSessionInvalidated</code> SignalR event is simultaneously pushed to all of the user's connected browser tabs, triggering a non-dismissible re-login modal on each tab immediately — even before the next API request is made.</p>
+                </div>
+                <div class="info-security-item">
+                    <h4 class="info-security-title">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" /><path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+                        Password Reset Flow
+                    </h4>
+                    <p>Forgot your password? Use the <strong>Forgot Password</strong> link on the login page. Enter your email to receive a <strong>6-digit code</strong> valid for 5 minutes. Enter the code on the verification screen — too many wrong attempts triggers the same stepped lockout as login. After the code is verified, you have until it expires to set a new password. Each step is logged to the audit trail.</p>
+                </div>
+                <div class="info-security-item">
+                    <h4 class="info-security-title">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
+                        Email Verification Gate
+                    </h4>
+                    <p>New accounts must verify their email before accessing the application beyond the change-password screen. The verification gate polls automatically — once the link is clicked in another tab or device, the page advances without a manual refresh. Verification links expire after 24 hours. Admins can resend verification emails. Once verified, the session cookie is upgraded from session-only to persistent (8-hour sliding window).</p>
+                </div>
+                <div class="info-security-item">
+                    <h4 class="info-security-title">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                        HttpOnly Cookie Auth
+                    </h4>
+                    <p>Authentication uses HttpOnly, SameSite=Lax cookies — the session token is never exposed to JavaScript. All API requests include <code>credentials: 'include'</code> so the cookie is sent automatically. Session validation middleware runs on every authenticated request and checks role ID, team ID, account disabled state, and account lockout status — stale sessions are invalidated immediately.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Real-time & Notifications ──────────────────── -->
+    <section class="info-section" id="realtime">
+        <div class="info-container">
+            <div class="info-section-header">
+                <span class="info-eyebrow">Live Sync</span>
+                <h2 class="info-section-title">Real-time &amp; Notifications</h2>
+                <p class="info-section-sub">DSB uses SignalR WebSocket hubs to push changes to every connected client instantly — no polling, no page refreshes. Two hubs handle separate concerns: board state and user notifications.</p>
+            </div>
+
+            <div class="info-realtime-grid">
+                <div class="info-realtime-card">
+                    <div class="info-realtime-header">
+                        <div class="info-pulse-dot" aria-hidden="true"></div>
+                        <h3 class="info-realtime-title">Board Hub</h3>
+                    </div>
+                    <p class="info-realtime-desc">Clients join sprint-specific groups (<code>sprint-{id}</code>) to receive scoped board updates. All-client broadcasts cover creation and deletion events that affect the global backlog. Events include:</p>
+                    <div class="info-event-list">
+                        <span class="info-event-chip">WorkItemCreated</span>
+                        <span class="info-event-chip">WorkItemUpdated</span>
+                        <span class="info-event-chip">WorkItemStatusChanged</span>
+                        <span class="info-event-chip">WorkItemMoved</span>
+                        <span class="info-event-chip">WorkItemReordered</span>
+                        <span class="info-event-chip">WorkItemDeleted</span>
+                        <span class="info-event-chip">WorkItemAssignedToSprint</span>
+                        <span class="info-event-chip">WorkItemRemovedFromSprint</span>
+                        <span class="info-event-chip">WorkItemCommentAdded</span>
+                        <span class="info-event-chip">WorkItemCommentEdited</span>
+                        <span class="info-event-chip">WorkItemCommentDeleted</span>
+                        <span class="info-event-chip">SprintCreated</span>
+                        <span class="info-event-chip">SprintUpdated</span>
+                        <span class="info-event-chip">SprintStarted</span>
+                        <span class="info-event-chip">SprintStopped</span>
+                        <span class="info-event-chip">SprintCompleted</span>
+                        <span class="info-event-chip">SprintDeleted</span>
+                        <span class="info-event-chip">AdminDirectoryChanged</span>
+                    </div>
+                </div>
+                <div class="info-realtime-card">
+                    <div class="info-realtime-header">
+                        <div class="info-pulse-dot info-pulse-dot--gold" aria-hidden="true"></div>
+                        <h3 class="info-realtime-title">Notification Hub</h3>
+                    </div>
+                    <p class="info-realtime-desc">Users are automatically added to a personal group (<code>user-{id}</code>) on connection. Admins also join the <code>admins</code> group. Notification types delivered as in-app toasts include:</p>
+                    <div class="info-event-list">
+                        <span class="info-event-chip">NotificationReceived</span>
+                        <span class="info-event-chip">NotificationRead</span>
+                        <span class="info-event-chip">WorkItemAssigned</span>
+                        <span class="info-event-chip">WorkItemUnassigned</span>
+                        <span class="info-event-chip">WorkItemUpdated</span>
+                        <span class="info-event-chip">WorkItemStatusChanged</span>
+                        <span class="info-event-chip">WorkItemArchived</span>
+                        <span class="info-event-chip">WorkItemCommentAdded</span>
+                        <span class="info-event-chip">WorkItemAssignedToSprint</span>
+                        <span class="info-event-chip">WorkItemRemovedFromSprint</span>
+                        <span class="info-event-chip">SprintCreatedForTeam</span>
+                        <span class="info-event-chip">SprintManagerAssigned</span>
+                        <span class="info-event-chip">SprintManagerRemoved</span>
+                        <span class="info-event-chip">SprintUpdated</span>
+                        <span class="info-event-chip">SprintStarted</span>
+                        <span class="info-event-chip">SprintStopped</span>
+                        <span class="info-event-chip">SprintCompleted</span>
+                        <span class="info-event-chip">SprintDeleted</span>
+                        <span class="info-event-chip">UserAccessUpdated</span>
+                        <span class="info-event-chip">UserPermissionsChanged</span>
+                        <span class="info-event-chip">UserSessionInvalidated</span>
+                        <span class="info-event-chip">UserProfileChanged</span>
+                        <span class="info-event-chip">AuditLogCreated</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-callout info-callout--gold">
+                <div class="info-callout-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </div>
+                <div>
+                    <strong>Notification targeting.</strong> Notifications are always targeted — you only receive notifications relevant to your work items, team, or sprint. The actor (the user who performed the action) never receives a notification for their own action. Duplicate notifications for the same user and event are deduplicated using a HashSet before persistence. Unread count badge updates broadcast separately via <code>NotificationRead</code> so all open tabs stay in sync without refetching the full list.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FAQ / Common Questions ─────────────────────── -->
+    <section class="info-section info-section--alt" id="faq">
+        <div class="info-container">
+            <div class="info-section-header">
+                <span class="info-eyebrow">FAQ</span>
+                <h2 class="info-section-title">Common Questions</h2>
+            </div>
+
+            <div class="info-faq-list">
+
+                <details class="info-faq-item">
+                    <summary class="info-faq-q">Why can't I move a card on the board?</summary>
+                    <div class="info-faq-a">
+                        Card movement is permission-gated and transition-gated. You can move a card if: (a) you are an Administrator or Scrum Master, (b) you are the Sprint Manager for this sprint, or (c) the card is directly assigned to you. Additionally, the move must be a valid transition — for example, you cannot drag a card from To-do directly to For Checking. If neither condition is met, the card cannot be moved. Ask an Admin, Scrum Master, or Sprint Manager to reassign the card or check the allowed transitions.
+                    </div>
+                </details>
+
+                <details class="info-faq-item">
+                    <summary class="info-faq-q">Why can't I assign a Story to a sprint?</summary>
+                    <div class="info-faq-a">
+                        Stories cannot be assigned to sprints — only Tasks can. This is enforced server-side. If you want to plan a Story's work within a sprint, assign its child Tasks to the sprint individually from the backlog. The Story's status is then automatically derived from its Tasks' statuses.
+                    </div>
+                </details>
+
+                <details class="info-faq-item">
+                    <summary class="info-faq-q">Why can't I start the sprint? It says work items have no assignee.</summary>
+                    <div class="info-faq-a">
+                        Every Task in a sprint must have an assigned user before the sprint can start. The system checks all non-deleted Tasks in the sprint and returns a list of those missing an assignee. An Administrator, Scrum Master, or the Sprint Manager must assign those Tasks before the Start Sprint action will succeed.
+                    </div>
+                </details>
+
+                <details class="info-faq-item">
+                    <summary class="info-faq-q">I tried to edit a work item in an active sprint and most fields are greyed out — why?</summary>
+                    <div class="info-faq-a">
+                        When a sprint is Active, only the <strong>due date</strong> of its work items can be edited. Title, description, priority, team, and parent are all locked for all roles — including Administrators and Scrum Masters. This is by design to prevent mid-sprint scope changes. Stop the sprint first if you need to make structural changes, then restart it.
+                    </div>
+                </details>
+
+                <details class="info-faq-item">
+                    <summary class="info-faq-q">What happens to unfinished items when a sprint is completed?</summary>
+                    <div class="info-faq-a">
+                        Unfinished Tasks (anything not in "Completed" status) are automatically unassigned from the sprint and returned to the backlog with their status reset to To-do. Tasks that were already Completed keep their Completed status and are also unassigned from the sprint. A confirmation dialog shows you how many items are unfinished before you confirm the complete action. The same behavior applies when a sprint is deleted — unfinished Tasks go to backlog as To-do; completed Tasks keep their status.
+                    </div>
+                </details>
+
+                <details class="info-faq-item">
+                    <summary class="info-faq-q">A modal appeared saying my permissions were updated and I need to re-login — is this normal?</summary>
+                    <div class="info-faq-a">
+                        Yes. If an Administrator changes your role or team while you are logged in, two things happen simultaneously: the server-side middleware will reject your next request with a <code>SESSION_INVALIDATED</code> reason, and a SignalR push event immediately triggers a non-dismissible re-login modal on all your open browser tabs before you even make another request. This is by design — your new permissions require a fresh session. Click "Logout" and log back in.
+                    </div>
+                </details>
+
+                <details class="info-faq-item">
+                    <summary class="info-faq-q">Can a team member comment on a work item that isn't assigned to them?</summary>
+                    <div class="info-faq-a">
+                        Yes — team membership grants comment access beyond just the item's direct assignee. You can comment on a work item if: (a) you are an Admin or Scrum Master, (b) you are the item's assignee, (c) the item belongs to your team, (d) you are the Sprint Manager of the sprint the item is in, or (e) you are a member of the sprint's team. This is an additive permission on top of the base role.
+                    </div>
+                </details>
+
+                <details class="info-faq-item">
+                    <summary class="info-faq-q">My account was locked after too many failed logins. How long do I have to wait?</summary>
+                    <div class="info-faq-a">
+                        Rate limiting begins at 5 consecutive failures — a countdown timer shows how long to wait (starting at 1 minute, growing by 30 seconds per additional failure). After 8 consecutive failures, your account is locked for 24 hours. An Administrator can unlock your account at any time via the User Management panel — this resets the failure counter immediately. You can also use the Forgot Password flow to reset your password, which bypasses the login lockout.
+                    </div>
+                </details>
+
+                <details class="info-faq-item">
+                    <summary class="info-faq-q">Can I delete a work item that has children?</summary>
+                    <div class="info-faq-a">
+                        Yes — but all descendants are soft-deleted (archived) as part of a cascade. Deleting a Story also archives all its child Tasks. Deleting an Epic archives all Stories and Tasks beneath it. Each archived item is unassigned from any sprint, the assignee is cleared, and history entries are written for each change. This is available to Administrators and Scrum Masters only. Archived items cannot be restored through the UI.
+                    </div>
+                </details>
+
+                <details class="info-faq-item">
+                    <summary class="info-faq-q">What does the "Default Team" mean?</summary>
+                    <div class="info-faq-a">
+                        "Default Team" (Team ID 1) is a system placeholder that represents "unassigned." Users, work items, and sprints with this team should be treated as having no team. The Default Team cannot be deleted. No team-based notifications are sent for items or sprints associated with the Default Team. When a team is deleted, all its members, work items, and sprints are automatically reassigned to the Default Team.
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Footer ──────────────────────────────────────── -->
+    <footer class="info-footer">
+        <div class="info-container">
+            <div class="info-footer-inner">
+                <div class="info-footer-brand">
+                    <div class="info-footer-logo">
+                        <img src="/SitesphilLogo.png" alt="" class="info-footer-logo-img" width="24" height="24" />
+                    </div>
+                    <div>
+                        <div class="info-footer-name">Digital Scrum Board</div>
+                        <div class="info-footer-sub">Agile Sprint Management Platform</div>
+                    </div>
+                </div>
+                <div class="info-footer-links">
+                    <a href="#overview" class="info-footer-link">Overview</a>
+                    <a href="#roles" class="info-footer-link">Roles</a>
+                    <a href="#hierarchy" class="info-footer-link">Hierarchy</a>
+                    <a href="#status-flow" class="info-footer-link">Status Flow</a>
+                    <a href="#modules" class="info-footer-link">Modules</a>
+                    <a href="#navigation" class="info-footer-link">Navigation</a>
+                    <a href="#flows" class="info-footer-link">Flows</a>
+                    <a href="#security" class="info-footer-link">Security</a>
+                    <a href="#faq" class="info-footer-link">FAQ</a>
+                </div>
+            </div>
+            <div class="info-footer-bottom">
+                <span>Built with role-based access control, real-time SignalR collaboration, and audit logging.</span>
+                <span class="info-footer-credit">Designed and Developed by Franchesca Lei T. Demisana</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const html = document.documentElement;
+        const btn = document.getElementById('themeToggle');
+        const stored = localStorage.getItem('dsb-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initial = stored === 'light' || stored === 'dark' ? stored : (prefersDark ? 'dark' : 'light');
+        html.setAttribute('data-theme', initial);
+
+        btn.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('dsb-theme', next);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Staggered animation on section entry
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('info-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08 });
+
+        document.querySelectorAll('.info-card, .info-role-card, .info-module, .info-flow-card, .info-security-item, .info-realtime-card, .info-faq-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

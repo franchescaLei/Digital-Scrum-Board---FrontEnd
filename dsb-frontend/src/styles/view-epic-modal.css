@@ -1,0 +1,843 @@
+﻿/* ─────────────────────────────────────────────
+   VIEW EPIC MODAL
+   Aligned with DSB design language:
+   - DM Serif Display + Plus Jakarta Sans
+   - --accent-red / --accent-gold token system
+   - Consistent with bl-modal, wi-modal, backlogs.css
+───────────────────────────────────────────── */
+
+/* ── Overlay ─────────────────────────────── */
+
+.vem-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 300;
+	background: rgba(10, 6, 4, 0.58);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+	animation: vemOverlayIn 0.2s ease both;
+}
+
+@keyframes vemOverlayIn {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+/* ── Dialog shell ────────────────────────── */
+
+.vem-dialog {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 960px;
+	max-height: min(90dvh, 820px);
+	min-height: 500px;
+	background: var(--form-bg);
+	border: 1px solid var(--form-border);
+	border-radius: var(--radius-xl);
+	box-shadow: 0 0 0 1px rgba(196, 147, 63, 0.12), 0 24px 80px rgba(0, 0, 0, 0.34), 0 8px 24px rgba(0, 0, 0, 0.18);
+	overflow: hidden;
+	animation: vemDialogIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes vemDialogIn {
+	from {
+		opacity: 0;
+		transform: translateY(16px) scale(0.975);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+/* ── Header ──────────────────────────────── */
+
+.vem-header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 18px 22px 16px;
+	border-bottom: 1px solid var(--divider);
+	flex-shrink: 0;
+	background: var(--form-bg);
+	position: relative;
+}
+
+.vem-header-eyebrow {
+	font-family: var(--font-ui);
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--accent-gold);
+	white-space: nowrap;
+}
+
+.vem-header-title {
+	font-family: var(--font-display);
+	font-size: 1.0625rem;
+	font-weight: 400;
+	color: var(--form-text);
+	letter-spacing: -0.015em;
+	line-height: 1.25;
+	flex: 1;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin: 0;
+}
+
+.vem-close-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	border: 1px solid var(--divider);
+	border-radius: var(--radius-md);
+	background: transparent;
+	color: var(--form-text-muted);
+	cursor: pointer;
+	flex-shrink: 0;
+	transition: all 0.14s ease;
+	padding: 0;
+}
+
+	.vem-close-btn:hover {
+		border-color: var(--accent-red);
+		background: var(--accent-red-light);
+		color: var(--accent-red);
+	}
+
+/* ── Error banner ─────────────────────────── */
+
+.vem-error-banner {
+	margin: 0;
+	padding: 12px 22px;
+	background: var(--color-error-bg);
+	color: var(--color-error);
+	border-bottom: 1px solid var(--color-error-border);
+	font-family: var(--font-ui);
+	font-size: 0.8125rem;
+	line-height: 1.5;
+	flex-shrink: 0;
+}
+
+/* ── Loading state ───────────────────────── */
+
+.vem-loading-state {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	padding: 48px 24px;
+	color: var(--form-text-muted);
+	font-family: var(--font-ui);
+	font-size: 0.875rem;
+}
+
+.vem-spinner {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 2px solid var(--divider);
+	border-top-color: var(--accent-red);
+	border-radius: 50%;
+	animation: vemSpin 0.65s linear infinite;
+	flex-shrink: 0;
+}
+
+@keyframes vemSpin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* ── Body (two-column) ───────────────────── */
+
+.vem-body {
+	display: flex;
+	flex: 1;
+	min-height: 0;
+	overflow: hidden;
+}
+
+/* ── Left panel ──────────────────────────── */
+
+.vem-left {
+	display: flex;
+	flex-direction: column;
+	width: 52%;
+	min-width: 280px;
+	border-right: 1px solid var(--divider);
+	overflow: hidden;
+	flex-shrink: 0;
+}
+
+/* Left toolbar */
+.vem-left-toolbar {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 10px 14px;
+	border-bottom: 1px solid var(--divider);
+	background: var(--form-surface);
+	flex-shrink: 0;
+}
+
+/* Search */
+.vem-search-wrap {
+	position: relative;
+	flex: 1;
+	min-width: 0;
+}
+
+.vem-search-icon {
+	position: absolute;
+	left: 9px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--form-text-muted);
+	pointer-events: none;
+}
+
+.vem-search-input {
+	width: 100%;
+	padding: 7px 11px 7px 28px;
+	font-family: var(--font-ui);
+	font-size: 0.8125rem;
+	color: var(--form-text);
+	background: var(--form-input-bg);
+	border: 1px solid var(--form-border);
+	border-radius: var(--radius-md);
+	outline: none;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+	-webkit-appearance: none;
+}
+
+	.vem-search-input::placeholder {
+		color: var(--form-text-placeholder);
+	}
+
+	.vem-search-input:focus {
+		border-color: var(--form-border-focus);
+		box-shadow: var(--shadow-input-focus);
+	}
+
+/* Expand / collapse buttons */
+.vem-expand-btns {
+	display: flex;
+	gap: 4px;
+	flex-shrink: 0;
+}
+
+.vem-toggle-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 5px 9px;
+	font-family: var(--font-ui);
+	font-size: 0.6875rem;
+	font-weight: 600;
+	color: var(--form-text-muted);
+	background: transparent;
+	border: 1px solid var(--form-border);
+	border-radius: var(--radius-sm);
+	cursor: pointer;
+	transition: all 0.13s ease;
+	white-space: nowrap;
+}
+
+	.vem-toggle-btn:hover {
+		color: var(--accent-red);
+		border-color: color-mix(in srgb, var(--form-border) 40%, var(--accent-red) 60%);
+		background: var(--accent-red-light);
+	}
+
+/* Tree list */
+.vem-tree-list {
+	flex: 1;
+	overflow-y: auto;
+	padding: 6px 0 14px;
+	scrollbar-width: thin;
+	scrollbar-color: var(--divider) transparent;
+}
+
+	.vem-tree-list::-webkit-scrollbar {
+		width: 4px;
+	}
+
+	.vem-tree-list::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	.vem-tree-list::-webkit-scrollbar-thumb {
+		background: var(--divider);
+		border-radius: 99px;
+	}
+
+/* Empty tree */
+.vem-empty-tree {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 36px 24px;
+	color: var(--form-text-muted);
+	font-family: var(--font-ui);
+	font-size: 0.8125rem;
+	font-style: italic;
+}
+
+/* ── Tree row ────────────────────────────── */
+
+.vem-tree-group {
+}
+
+.vem-tree-row {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding-right: 12px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	cursor: pointer;
+	outline: none;
+	border-left: 2px solid transparent;
+	transition: background 0.12s ease, border-color 0.12s ease;
+	min-height: 34px;
+}
+
+	.vem-tree-row:hover {
+		background: var(--form-surface);
+	}
+
+.vem-tree-row--selected {
+	background: var(--accent-red-light);
+	border-left-color: var(--accent-red);
+}
+
+.vem-tree-row:focus-visible {
+	box-shadow: inset 0 0 0 2px var(--accent-red);
+}
+
+/* Chevron toggle */
+.vem-row-chevron {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 16px;
+	height: 16px;
+	flex-shrink: 0;
+	background: transparent;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	color: var(--form-text-muted);
+	border-radius: var(--radius-sm);
+	transition: color 0.13s ease, background 0.13s ease;
+}
+
+	.vem-row-chevron:hover {
+		color: var(--form-text);
+	}
+
+.vem-row-chevron--empty {
+	cursor: default;
+	pointer-events: none;
+}
+
+/* Title */
+.vem-row-title {
+	flex: 1;
+	font-family: var(--font-ui);
+	font-size: 0.8125rem;
+	font-weight: 500;
+	color: var(--form-text);
+	line-height: 1.35;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	min-width: 0;
+}
+
+.vem-tree-row--selected .vem-row-title {
+	font-weight: 600;
+	color: var(--accent-red);
+}
+
+/* Assignee in row */
+.vem-row-assignee {
+	font-family: var(--font-ui);
+	font-size: 0.6875rem;
+	color: var(--form-text-muted);
+	flex-shrink: 0;
+	max-width: 90px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* Children indented container */
+.vem-tree-children {
+	border-left: 1px solid var(--divider);
+	margin-left: 18px;
+}
+
+/* ── Type chips ──────────────────────────── */
+
+.vem-type-chip {
+	display: inline-flex;
+	align-items: center;
+	flex-shrink: 0;
+	padding: 2px 7px;
+	border-radius: 4px;
+	font-family: var(--font-ui);
+	font-size: 0.5625rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	border: 1px solid transparent;
+}
+
+.vem-type--epic {
+	background: var(--accent-gold-light);
+	color: var(--accent-gold);
+	border-color: color-mix(in srgb, var(--accent-gold) 28%, transparent);
+}
+
+.vem-type--story {
+	background: rgba(99, 102, 241, 0.10);
+	color: #6366f1;
+	border-color: rgba(99, 102, 241, 0.22);
+}
+
+[data-theme="dark"] .vem-type--story {
+	background: rgba(129, 140, 248, 0.12);
+	color: #818cf8;
+	border-color: rgba(129, 140, 248, 0.22);
+}
+
+.vem-type--task {
+	background: rgba(6, 182, 212, 0.10);
+	color: #0891b2;
+	border-color: rgba(6, 182, 212, 0.22);
+}
+
+[data-theme="dark"] .vem-type--task {
+	background: rgba(34, 211, 238, 0.10);
+	color: #22d3ee;
+	border-color: rgba(34, 211, 238, 0.22);
+}
+
+.vem-type--other {
+	background: var(--form-surface);
+	color: var(--form-text-muted);
+	border-color: var(--form-border);
+}
+
+/* ── Status badges ───────────────────────── */
+
+.vem-status-badge {
+	display: inline-flex;
+	align-items: center;
+	flex-shrink: 0;
+	padding: 2px 7px;
+	border-radius: 4px;
+	font-family: var(--font-ui);
+	font-size: 0.5625rem;
+	font-weight: 600;
+	border: 1px solid transparent;
+	background: var(--form-surface);
+	color: var(--form-text-muted);
+}
+
+.vem-status--todo {
+	background: color-mix(in srgb, #CA8A04 12%, transparent);
+	color: #CA8A04;
+	border-color: color-mix(in srgb, #CA8A04 22%, transparent);
+}
+
+.vem-status--ongoing {
+	background: rgba(59, 130, 246, 0.10);
+	color: #2563EB;
+	border-color: rgba(59, 130, 246, 0.22);
+}
+
+[data-theme="dark"] .vem-status--ongoing {
+	color: #60A5FA;
+}
+
+.vem-status--checking {
+	background: color-mix(in srgb, #D97706 10%, transparent);
+	color: #B45309;
+	border-color: color-mix(in srgb, #D97706 22%, transparent);
+}
+
+[data-theme="dark"] .vem-status--checking {
+	color: #FCD34D;
+}
+
+.vem-status--completed {
+	background: rgba(22, 163, 74, 0.10);
+	color: #15803D;
+	border-color: rgba(22, 163, 74, 0.20);
+}
+
+[data-theme="dark"] .vem-status--completed {
+	color: #4ADE80;
+}
+
+/* ── Priority chips ──────────────────────── */
+
+.vem-priority-chip {
+	display: inline-flex;
+	align-items: center;
+	flex-shrink: 0;
+	padding: 2px 6px;
+	border-radius: 4px;
+	font-family: var(--font-ui);
+	font-size: 0.5625rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+}
+
+	.vem-priority-chip.wi-accent--high {
+		background: var(--chip-high-bg);
+		color: var(--chip-high-color);
+	}
+
+	.vem-priority-chip.wi-accent--medium {
+		background: var(--chip-medium-bg);
+		color: var(--chip-medium-color);
+	}
+
+	.vem-priority-chip.wi-accent--low {
+		background: var(--chip-low-bg);
+		color: var(--chip-low-color);
+	}
+
+	.vem-priority-chip.wi-accent--default {
+		background: var(--form-surface);
+		color: var(--form-text-muted);
+	}
+
+/* ── Right panel ─────────────────────────── */
+
+.vem-right {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	overflow: hidden;
+	background: var(--form-bg);
+}
+
+/* No selection placeholder */
+.vem-no-selection {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	color: var(--form-text-muted);
+	font-family: var(--font-ui);
+	font-size: 0.8125rem;
+	opacity: 0.6;
+	padding: 48px 24px;
+}
+
+/* ── Detail panel ────────────────────────── */
+
+.vem-detail {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: hidden;
+}
+
+/* Detail header */
+.vem-detail-header {
+	flex-shrink: 0;
+	padding: 20px 22px 16px;
+	border-bottom: 1px solid var(--divider);
+	background: var(--form-surface);
+}
+
+.vem-detail-type-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 8px;
+}
+
+.vem-detail-id {
+	font-family: var(--font-ui);
+	font-size: 0.6875rem;
+	font-weight: 500;
+	color: var(--accent-gold);
+	opacity: 0.85;
+}
+
+.vem-detail-title {
+	font-family: var(--font-display);
+	font-size: 1.125rem;
+	font-weight: 400;
+	color: var(--form-text);
+	letter-spacing: -0.015em;
+	line-height: 1.35;
+	margin: 0;
+	word-break: break-word;
+}
+
+/* Detail body (scrollable) */
+.vem-detail-body {
+	flex: 1;
+	overflow-y: auto;
+	padding: 0 0 24px;
+	display: flex;
+	flex-direction: column;
+	scrollbar-width: thin;
+	scrollbar-color: var(--divider) transparent;
+}
+
+	.vem-detail-body::-webkit-scrollbar {
+		width: 4px;
+	}
+
+	.vem-detail-body::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	.vem-detail-body::-webkit-scrollbar-thumb {
+		background: var(--divider);
+		border-radius: 99px;
+	}
+
+/* Section */
+.vem-detail-section {
+	padding: 16px 22px 0;
+}
+
+	.vem-detail-section + .vem-detail-section {
+		padding-top: 18px;
+		margin-top: 18px;
+		border-top: 1px solid var(--divider);
+	}
+
+.vem-detail-section-label {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-family: var(--font-ui);
+	font-size: 0.625rem;
+	font-weight: 700;
+	letter-spacing: 0.10em;
+	text-transform: uppercase;
+	color: var(--form-text-muted);
+	margin-bottom: 12px;
+}
+
+/* Description */
+.vem-detail-description {
+	font-family: var(--font-ui);
+	font-size: 0.875rem;
+	color: var(--form-text);
+	line-height: 1.65;
+	white-space: pre-wrap;
+	word-break: break-word;
+	margin: 0;
+	padding: 12px 14px;
+	background: var(--form-surface);
+	border: 1px solid var(--divider);
+	border-radius: var(--radius-md);
+}
+
+/* Meta grid */
+.vem-meta-grid {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.vem-meta-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 8px 12px;
+	background: var(--form-surface);
+	border: 1px solid var(--divider);
+	border-radius: var(--radius-md);
+}
+
+.vem-meta-label {
+	font-family: var(--font-ui);
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: var(--form-text-muted);
+	flex-shrink: 0;
+}
+
+.vem-meta-value {
+	font-family: var(--font-ui);
+	font-size: 0.8125rem;
+	font-weight: 500;
+	color: var(--form-text);
+	text-align: right;
+}
+
+.vem-meta-value--muted {
+	color: var(--form-text-muted);
+	font-style: italic;
+	font-weight: 400;
+}
+
+/* ── Progress cards ──────────────────────── */
+
+.vem-progress-cards {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.vem-progress-card {
+	padding: 11px 14px;
+	border: 1px solid var(--divider);
+	border-radius: var(--radius-md);
+	background: var(--form-surface);
+	border-left-width: 3px;
+}
+
+.vem-progress-card--stories {
+	border-left-color: var(--accent-gold);
+}
+
+.vem-progress-card--tasks {
+	border-left-color: #06b6d4;
+}
+
+.vem-progress-card-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 8px;
+}
+
+.vem-progress-label {
+	font-family: var(--font-ui);
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--form-text-muted);
+}
+
+.vem-progress-fraction {
+	font-family: var(--font-ui);
+	font-size: 0.8125rem;
+	font-weight: 500;
+	color: var(--form-text);
+	font-variant-numeric: tabular-nums;
+}
+
+	.vem-progress-fraction strong {
+		font-weight: 700;
+		color: var(--form-text);
+	}
+
+.vem-progress-bar {
+	height: 4px;
+	background: var(--divider);
+	border-radius: 99px;
+	overflow: hidden;
+	margin-bottom: 5px;
+}
+
+.vem-progress-fill {
+	height: 100%;
+	border-radius: 99px;
+	transition: width 0.4s ease;
+}
+
+.vem-progress-fill--stories {
+	background: var(--accent-gold);
+}
+
+.vem-progress-fill--tasks {
+	background: #06b6d4;
+}
+
+.vem-progress-pct {
+	font-family: var(--font-ui);
+	font-size: 0.6875rem;
+	font-weight: 600;
+	color: var(--form-text-muted);
+}
+
+/* ── Children chips ──────────────────────── */
+
+.vem-children-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	padding: 10px 12px;
+	background: var(--form-surface);
+	border: 1px solid var(--divider);
+	border-radius: var(--radius-md);
+}
+
+.vem-child-chip {
+	font-size: 0.5625rem;
+}
+
+/* ── Responsive ──────────────────────────── */
+
+@media (max-width: 720px) {
+	.vem-overlay {
+		padding: 0;
+		align-items: flex-end;
+	}
+
+	.vem-dialog {
+		max-width: 100%;
+		max-height: 94dvh;
+		border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+	}
+
+	.vem-body {
+		flex-direction: column;
+	}
+
+	.vem-left {
+		width: 100%;
+		min-width: unset;
+		flex-shrink: 0;
+		border-right: none;
+		border-bottom: 1px solid var(--divider);
+		max-height: 44dvh;
+	}
+
+	.vem-right {
+		flex-shrink: 0;
+	}
+
+	.vem-detail-body {
+		max-height: 36dvh;
+	}
+}

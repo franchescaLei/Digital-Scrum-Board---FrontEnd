@@ -1,0 +1,363 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* ─────────────────────────────────────────────
+   THEME CUSTOM PROPERTIES
+───────────────────────────────────────────── */
+
+:root {
+    /* Brand Panel (dark in both modes) */
+    --brand-bg: #120808;
+    --brand-accent-red: #8B1A1A;
+    --brand-accent-gold: #C4933F;
+    --brand-text: #F5F0EB;
+    --brand-text-muted: rgba(245, 240, 235, 0.55);
+    --brand-border: rgba(196, 147, 63, 0.18);
+    --brand-dot: rgba(196, 147, 63, 0.12);
+    /* Form Panel – Light */
+    --form-bg: #FFFFFF;
+    --form-surface: #FAFAF8;
+    --form-text: #1A1410;
+    --form-text-muted: #6B5E52;
+    --form-text-placeholder: #A09080;
+    --form-border: #DDD5CA;
+    --form-border-focus: #8B1A1A;
+    --form-input-bg: #FFFFFF;
+    /* Button */
+    --btn-primary-bg: #8B1A1A;
+    --btn-primary-hover: #6D1212;
+    --btn-primary-text: #FFFFFF;
+    --btn-primary-ring: rgba(139, 26, 26, 0.28);
+    /* Accent */
+    --accent-red: #8B1A1A;
+    --accent-red-light: rgba(139, 26, 26, 0.08);
+    --accent-gold: #C4933F;
+    --accent-gold-light: rgba(196, 147, 63, 0.12);
+    /* Status colours */
+    --color-error: #B91C1C;
+    --color-error-bg: #FEF2F2;
+    --color-error-border: #FECACA;
+    --color-warn: #92400E;
+    --color-warn-bg: #FFFBEB;
+    --color-warn-border: #FDE68A;
+    --color-info: #1E40AF;
+    --color-info-bg: #EFF6FF;
+    --color-info-border: #BFDBFE;
+    --color-success: #166534;
+    --color-success-bg: #F0FDF4;
+    --color-success-border: #BBF7D0;
+    --color-lock: #7C2D12;
+    --color-lock-bg: #FFF7ED;
+    --color-lock-border: #FED7AA;
+    /* Divider */
+    --divider: #EDE7E0;
+    /* Scrollbars (Firefox + WebKit) */
+    --scrollbar-size: 6px;
+    --scrollbar-track: transparent;
+    --scrollbar-thumb: color-mix(in srgb, var(--form-text-muted) 32%, var(--divider));
+    --scrollbar-thumb-hover: color-mix(in srgb, var(--accent-red) 38%, var(--form-text-muted));
+    /* Shadows */
+    --shadow-card: 0 1px 3px rgba(26, 20, 16, 0.06), 0 8px 32px rgba(26, 20, 16, 0.07);
+    --shadow-input-focus: 0 0 0 3px rgba(139, 26, 26, 0.14);
+    --shadow-btn: 0 1px 2px rgba(139, 26, 26, 0.25), 0 3px 12px rgba(139, 26, 26, 0.18);
+    /* Font */
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-ui: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    /* Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    /* Transition */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─────────────────────────────────────────────
+   DARK MODE OVERRIDES
+───────────────────────────────────────────── */
+
+[data-theme="dark"] {
+    --form-bg: #0E0E0E;
+    --form-surface: #161616;
+    --form-text: #F0EBE5;
+    --form-text-muted: #8A7A6E;
+    --form-text-placeholder: #4A3E36;
+    --form-border: #2A2420;
+    --form-border-focus: #C53030;
+    --form-input-bg: #1A1614;
+    --btn-primary-bg: #C53030;
+    --btn-primary-hover: #E03535;
+    --btn-primary-text: #FFFFFF;
+    --btn-primary-ring: rgba(197, 48, 48, 0.3);
+    --accent-red: #C53030;
+    --accent-red-light: rgba(197, 48, 48, 0.1);
+    --accent-gold: #D4A843;
+    --accent-gold-light: rgba(212, 168, 67, 0.12);
+    --color-error: #FCA5A5;
+    --color-error-bg: #1F0808;
+    --color-error-border: #5C1010;
+    --color-warn: #FCD34D;
+    --color-warn-bg: #1A1000;
+    --color-warn-border: #5C3A00;
+    --color-info: #93C5FD;
+    --color-info-bg: #0A0F1F;
+    --color-info-border: #1E3A6A;
+    --color-success: #86EFAC;
+    --color-success-bg: #071510;
+    --color-success-border: #14532D;
+    --color-lock: #FDBA74;
+    --color-lock-bg: #180C04;
+    --color-lock-border: #5C2D0A;
+    --divider: #221E1A;
+    --scrollbar-thumb: color-mix(in srgb, var(--form-text-muted) 42%, var(--divider));
+    --scrollbar-thumb-hover: color-mix(in srgb, var(--accent-gold) 35%, var(--form-text-muted));
+    --shadow-card: 0 1px 3px rgba(0,0,0,0.4), 0 8px 32px rgba(0,0,0,0.5);
+    --shadow-input-focus: 0 0 0 3px rgba(197, 48, 48, 0.2);
+    --shadow-btn: 0 1px 2px rgba(0,0,0,0.4), 0 3px 12px rgba(197,48,48,0.25);
+}
+
+/* ─────────────────────────────────────────────
+   GLOBAL RESETS
+───────────────────────────────────────────── */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-ui);
+    line-height: 1.5;
+    background: var(--form-bg);
+    color: var(--form-text);
+    transition: background 0.25s var(--ease-out), color 0.25s var(--ease-out);
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+/* ─────────────────────────────────────────────
+   Minimal scrollbars (theme-aware)
+───────────────────────────────────────────── */
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+*::-webkit-scrollbar {
+    width: var(--scrollbar-size);
+    height: var(--scrollbar-size);
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: 99px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover);
+}
+
+*::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* Focus visible polyfill reset */
+:focus-visible {
+    outline: 2px solid var(--accent-red);
+    outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ─────────────────────────────────────────────
+   Blocking Auth Modals
+───────────────────────────────────────────── */
+
+.reauth-modal-overlay,
+.disabled-account-modal-overlay,
+.session-invalidated-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background:
+        radial-gradient(circle at top, color-mix(in srgb, var(--accent-gold) 10%, transparent), transparent 42%),
+        linear-gradient(180deg, rgba(10, 8, 8, 0.72), rgba(10, 8, 8, 0.84));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.reauth-modal-surface,
+.disabled-account-modal-surface,
+.session-invalidated-modal-surface {
+    position: relative;
+    width: min(100%, 520px);
+    padding: 32px;
+    border-radius: 24px;
+    border: 1px solid color-mix(in srgb, var(--accent-gold) 26%, var(--form-border));
+    background:
+        linear-gradient(180deg, color-mix(in srgb, var(--form-surface) 92%, white 8%), var(--form-bg));
+    color: var(--form-text);
+    box-shadow:
+        0 24px 80px rgba(0, 0, 0, 0.28),
+        0 10px 30px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    text-align: center;
+    overflow: hidden;
+}
+
+.reauth-modal-surface::before,
+.disabled-account-modal-surface::before,
+.session-invalidated-modal-surface::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent-red), var(--accent-gold));
+}
+
+.reauth-modal-icon,
+.disabled-account-modal-icon,
+.session-invalidated-modal-icon {
+    width: 72px;
+    height: 72px;
+    margin: 4px auto 18px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background:
+        radial-gradient(circle at 30% 30%, color-mix(in srgb, white 24%, transparent), transparent 50%),
+        linear-gradient(180deg, color-mix(in srgb, var(--accent-red) 16%, var(--form-bg)), color-mix(in srgb, var(--accent-gold) 18%, var(--form-bg)));
+    color: var(--accent-red);
+    border: 1px solid color-mix(in srgb, var(--accent-gold) 32%, var(--form-border));
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        0 10px 30px color-mix(in srgb, var(--accent-red) 16%, transparent);
+}
+
+.disabled-account-modal-icon {
+    color: var(--color-error);
+    background:
+        radial-gradient(circle at 30% 30%, color-mix(in srgb, white 24%, transparent), transparent 50%),
+        linear-gradient(180deg, color-mix(in srgb, var(--color-error) 14%, var(--form-bg)), color-mix(in srgb, var(--accent-red) 12%, var(--form-bg)));
+}
+
+.reauth-modal-title,
+.disabled-account-modal-title,
+.session-invalidated-modal-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 2vw, 2.2rem);
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+    color: var(--form-text);
+}
+
+.reauth-modal-message,
+.disabled-account-modal-message,
+.session-invalidated-modal-message {
+    max-width: 38ch;
+    margin: 14px auto 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--form-text-muted);
+}
+
+.reauth-modal-logout-btn,
+.disabled-account-modal-logout-btn,
+.session-invalidated-modal-logout-btn {
+    min-width: 180px;
+    margin-top: 28px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    padding: 0.92rem 1.25rem;
+    background: linear-gradient(180deg, var(--btn-primary-bg), var(--btn-primary-hover));
+    color: var(--btn-primary-text);
+    font-size: 0.98rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    box-shadow: var(--shadow-btn);
+    transition:
+        transform 0.18s var(--ease-out),
+        box-shadow 0.18s var(--ease-out),
+        filter 0.18s var(--ease-out);
+}
+
+.reauth-modal-logout-btn:hover,
+.disabled-account-modal-logout-btn:hover,
+.session-invalidated-modal-logout-btn:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.04);
+}
+
+.reauth-modal-logout-btn:active,
+.disabled-account-modal-logout-btn:active,
+.session-invalidated-modal-logout-btn:active {
+    transform: translateY(0);
+    filter: brightness(0.98);
+}
+
+.reauth-modal-logout-btn:focus-visible,
+.disabled-account-modal-logout-btn:focus-visible,
+.session-invalidated-modal-logout-btn:focus-visible {
+    box-shadow:
+        var(--shadow-btn),
+        0 0 0 4px var(--btn-primary-ring);
+}
+
+@media (max-width: 640px) {
+    .reauth-modal-overlay,
+    .disabled-account-modal-overlay,
+    .session-invalidated-modal-overlay {
+        padding: 16px;
+    }
+
+    .reauth-modal-surface,
+    .disabled-account-modal-surface,
+    .session-invalidated-modal-surface {
+        padding: 24px 20px;
+        border-radius: 20px;
+    }
+
+    .reauth-modal-icon,
+    .disabled-account-modal-icon,
+    .session-invalidated-modal-icon {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 16px;
+    }
+
+    .reauth-modal-message,
+    .disabled-account-modal-message,
+    .session-invalidated-modal-message {
+        font-size: 0.96rem;
+    }
+
+    .reauth-modal-logout-btn,
+    .disabled-account-modal-logout-btn,
+    .session-invalidated-modal-logout-btn {
+        width: 100%;
+    }
+}
