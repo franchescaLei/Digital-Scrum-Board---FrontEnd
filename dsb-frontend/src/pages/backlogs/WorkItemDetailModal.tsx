@@ -99,6 +99,8 @@ interface WorkItemDetails extends AgendaWorkItem {
     assignedUserName?: string | null;
     sprintName?: string | null;
     createdAt?: string | null;
+    stories?: AgendaWorkItem[];
+    tasks?: AgendaWorkItem[];
 }
 
 interface EditableFields {
@@ -633,7 +635,14 @@ export function WorkItemDetailModal({
         const handler = (payload: Record<string, unknown>) => {
             const normalized = normalizeWorkItemFromEventPayload(payload);
             const wid = normalized?.workItemID ?? Number(payload.workItemID ?? payload.WorkItemID ?? 0);
-            if (wid !== item.workItemID) return;
+            const parentId = normalized?.parentWorkItemID ?? Number(payload.parentWorkItemID ?? payload.ParentWorkItemID ?? 0);
+
+            const isSelf = wid === item.workItemID;
+            const isDirectChild = parentId === item.workItemID;
+            const isKnownDescendant =
+                (details?.stories ?? []).some((s: AgendaWorkItem) => s.workItemID === wid) ||
+                (details?.tasks ?? []).some((t: AgendaWorkItem) => t.workItemID === wid);
+            if (!isSelf && !isDirectChild && !isKnownDescendant) return;
             const status = normalized?.status;
             const assignedUserName = normalized?.assignedUserName;
             const priority = normalized?.priority;
