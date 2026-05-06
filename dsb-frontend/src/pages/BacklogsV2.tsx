@@ -63,7 +63,6 @@ import {
 } from './backlogs';
 import { getBoardHubConnection, ensureBoardHubStarted } from '../services/boardHub';
 import { getNotificationHubConnection, startNotificationHub } from '../services/notificationHub';
-import * as signalR from '@microsoft/signalr';
 import '../styles/admin.css';
 import '../styles/backlogs.css';
 import '../styles/backlogs-story-pills.css';
